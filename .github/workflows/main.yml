@@ -21,6 +21,4 @@ jobs:
 
     - name: Set up Vagrant
       run: |
-        vagrant up --provider=vmware_esxi
-
-    # Add additional steps here if needed
+        vagrant up 

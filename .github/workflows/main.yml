@@ -13,9 +13,13 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Install Vagrant
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y vagrant
+
     - name: Set up Vagrant
       run: |
-        vagrant plugin install vagrant-vmware-esxi
         vagrant up --provider=vmware_esxi
 
     # Add additional steps here if needed

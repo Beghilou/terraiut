@@ -1,0 +1,21 @@
+name: Deploy to ESXi
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Vagrant
+      run: |
+        vagrant plugin install vagrant-vmware-esxi
+        vagrant up --provider=vmware_esxi
+
+    # Add additional steps here if needed
